@@ -1,5 +1,8 @@
 use hsa21;
-CREATE USER 'repl'@'%' IDENTIFIED BY 'password';
-GRANT REPLICATION SLAVE ON *.* TO 'repl'@'%';
+CREATE USER 'slave'@'%' IDENTIFIED BY 'password';
+GRANT REPLICATION SLAVE ON *.* TO 'slave'@'%';
 FLUSH PRIVILEGES;
 SHOW MASTER STATUS;
+
+-- After insert 3 times
+SELECT * FROM `user` LIMIT 10;
